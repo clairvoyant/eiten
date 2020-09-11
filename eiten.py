@@ -2,6 +2,8 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 
+import os
+
 # Load our modules
 from data_loader import DataEngine
 from simulator import MontoCarloSimulator
@@ -137,6 +139,9 @@ class Eiten:
             msr_portfolio_weights_dictionary, 'Maximum Sharpe Portfolio (MSR)', plot_num=3)
         self.print_and_plot_portfolio_weights(
             ga_portfolio_weights_dictionary, 'Genetic Algo (GA)', plot_num=4)
+        
+        if not os.path.exists("output"):
+            os.mkdir("output")
         self.draw_plot("output/weights.png")
 
         # Back test
