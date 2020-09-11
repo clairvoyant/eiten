@@ -153,8 +153,8 @@ class DataEngine:
             historical_price, future_price, symbol_names)
         for i in range(0, len(symbol_names)):
             self.data_dictionary[symbol_names[i]] = {
-                "historical": historical_price_info[i],
-                "future": future_price_info[i]}
+                "historical_prices": historical_price_info[i],
+                "future_prices": future_price_info[i]}
 
         return self.data_dictionary
 
