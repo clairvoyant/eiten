@@ -2,8 +2,6 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 
-import os
-
 # Load our modules
 from data_loader import DataEngine
 from simulator import MontoCarloSimulator
@@ -139,9 +137,6 @@ class Eiten:
             msr_portfolio_weights_dictionary, 'Maximum Sharpe Portfolio (MSR)', plot_num=3)
         self.print_and_plot_portfolio_weights(
             ga_portfolio_weights_dictionary, 'Genetic Algo (GA)', plot_num=4)
-        
-        if not os.path.exists("output"):
-            os.mkdir("output")
         self.draw_plot("output/weights.png")
 
         # Back test
@@ -246,11 +241,14 @@ class Eiten:
 
         plt.grid()
         plt.legend(fontsize=14)
-        if self.args.save_plot:
+        plt.tight_layout()
+        plt.show()
+        
+        """if self.args.save_plot:
             plt.savefig(filename)
         else:
             plt.tight_layout()
-            plt.show()
+            plt.show()""" # Plots were not being generated properly. Need to fix this.
 
     def print_and_plot_portfolio_weights(self, weights_dictionary: dict, strategy, plot_num: int) -> None:
         print("\n-------- Weights for %s --------" % strategy)

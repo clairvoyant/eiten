@@ -108,7 +108,7 @@ class DataEngine:
             print("Exception", e)
             return [], [], True
 
-        return historical_prices, future_prices, False
+        return historical_prices, future_prices.values.tolist(), False
 
     def get_market_index_price(self):
         """
